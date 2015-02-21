@@ -1,4 +1,4 @@
-Corcav.Behaviors
+Behaviors plugin for Xamarin Forms
 =======================
 
 This project is the porting of core Blend behaviors infrastructure to Xamarin Forms Platform,
