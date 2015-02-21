@@ -1,7 +1,7 @@
-Xamarin.Forms.Behaviors
+Corcav.Behaviors
 =======================
 
-Xamarin Forms Behaviors is the porting of core Blend behaviors infrastructure to Xamarin Forms Platform,
+This project is the porting of core Blend behaviors infrastructure to Xamarin Forms Platform,
 you can read about initial version here: http://bit.ly/xamarinbehaviors
 
 Updates
