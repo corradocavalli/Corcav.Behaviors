@@ -131,7 +131,7 @@ namespace Corcav.Behaviors
 				if (this.Command == null) this.CreateRelativeBinding();
 			}
 
-			if (this.Command == null) throw new InvalidOperationException("No command available, Is Command properly properly set up?");
+			if (this.Command == null) throw new InvalidOperationException("No command available, Is Command properly set up?");
 
 			if (this.Command.CanExecute(this.CommandParameter))
 			{
