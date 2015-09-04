@@ -18,6 +18,12 @@
         </member>
         <member name="M:Xamarin.Forms.Xaml.ArrayExtension.ProvideValue(System.IServiceProvider)">
             <param name="serviceProvider">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">To be added.</param>
             <summary>Returns an array that contains items of the type that is specified by the <see cref="P:Xamarin.Forms.Xaml.ArrayExtension.Type" /> property.</summary>
             <returns>To be added.</returns>
             <remarks>To be added.</remarks>
@@ -25,6 +31,12 @@
         <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Type">
             <summary>Gets or sets the type of the items that can be stored in the array.</summary>
             <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
             <remarks>To be added.</remarks>
         </member>
         <member name="T:Xamarin.Forms.Xaml.DynamicResourceExtension">
@@ -47,7 +59,7 @@
             <remarks>To be added.</remarks>
         </member>
         <member name="T:Xamarin.Forms.Xaml.Extensions">
-            <summary>Extension class for <see cref="T:Xamarin.Forms.View" /> defining <see cref="M:Xamarin.Forms.Extensions.LoadFromXaml`1" /> method.</summary>
+            <summary>Extension class for <see cref="T:Xamarin.Forms.View" /> defining <see cref="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml{TView}" /> method.</summary>
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.Type)">
@@ -124,13 +136,51 @@
             <returns>To be added.</returns>
             <remarks>To be added.</remarks>
         </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="P:Xamarin.Forms.Xaml.TypeExtension.TypeName">
             <summary>Gets or sets the name of the type.</summary>
             <value>To be added.</value>
             <remarks>To be added.</remarks>
         </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="T:Xamarin.Forms.Xaml.XamlParseException">
             <summary>Exception that is raised when the XAML parser encounters a XAML error.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XmlLineInfo">
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.XmlLineInfo(System.Boolean,System.Int32,System.Int32)">
+            <param name="hasLineInfo">To be added.</param>
+            <param name="linenumber">To be added.</param>
+            <param name="lineposition">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.XmlLineInfo.HasLineInfo">
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.XmlLineInfo.LineNumber">
+            <summary>To be added.</summary>
+            <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.XmlLineInfo.LinePosition">
+            <summary>To be added.</summary>
+            <value>To be added.</value>
             <remarks>To be added.</remarks>
         </member>
     </members>
