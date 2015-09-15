@@ -116,26 +116,50 @@ namespace Corcav.Behaviors
 			var mi = eventInfo.EventHandlerType.GetRuntimeMethods().First(rtm => rtm.Name == "Invoke");
 			List<ParameterExpression> parameters = mi.GetParameters().Select(p => Expression.Parameter(p.ParameterType)).ToList();
 			MethodInfo actionMethodInfo = action.GetMethodInfo();
-			Expression exp = Expression.Call(Expression.Constant(this), actionMethodInfo, null);
+			Expression exp = Expression.Call(Expression.Constant(this), actionMethodInfo, parameters.Last());
 			this.handler = Expression.Lambda(eventInfo.EventHandlerType, exp, parameters).Compile();
 			eventInfo.AddEventHandler(item, handler);
 		}
 
-		/// <summary>
-		/// Called when subscribed event fires
-		/// </summary>
-		private void OnFired()
+        /// <summary>
+        /// Called when subscribed event fires
+        /// 
+        /// If a CommandParameter isn't assigned, the EventArgs parameter to the Event you're attaching to will be sent instead.
+        /// You will want to have your Command to accept a parameter type of EventArgs for this to work correctly.
+        /// 
+        /// </summary>
+        /// <example>This is an example of using a Command and accepting an object of the ItemVisibilityEventArgs Type
+        /// <code>
+        /// ICommand ItemAppearingCommand
+        /// {
+        ///     get
+        ///     {
+        ///         return new Command&lt;ItemVisibilityEventArgs&gt;(async args => 
+        ///         {
+        ///             if(viewModel.Items != null &amp;&amp; e.Item == viewModel.Items[viewModel.Items.Count -1])
+        ///             {
+        ///                 await viewModel.RetrieveNextItemSet(viewModel.Items.Count).ConfigureAwait(false);
+        ///             }
+        ///         }
+        ///     }    
+        /// }
+        /// </code>
+        /// </example>
+        /// <param name="e">The EventArgs value accompanying the Event</param>
+        private void OnFired(EventArgs e)
 		{
-			if (!string.IsNullOrEmpty(this.CommandName))
+            object returnParam = this.CommandParameter ?? e;
+
+            if (!string.IsNullOrEmpty(this.CommandName))
 			{
 				if (this.Command == null) this.CreateRelativeBinding();
 			}
 
 			if (this.Command == null) throw new InvalidOperationException("No command available, Is Command properly set up?");
 
-			if (this.Command.CanExecute(this.CommandParameter))
+			if (this.Command.CanExecute(returnParam))
 			{
-				this.Command.Execute(this.CommandParameter);
+				this.Command.Execute(returnParam);
 			}
 		}
 
