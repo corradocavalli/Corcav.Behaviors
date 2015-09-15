@@ -108,7 +108,7 @@ namespace Corcav.Behaviors
 		/// <param name="eventInfo">The event information.</param>
 		/// <param name="item">The item.</param>
 		/// <param name="action">The action.</param>
-		private void AddEventHandler(EventInfo eventInfo, object item, Action action)
+		private void AddEventHandler(EventInfo eventInfo, object item, Action<EventArgs> action)
 		{
 			//Got inspiration from here: http://stackoverflow.com/questions/9753366/subscribing-an-action-to-any-event-type-via-reflection
 			//Maybe it is possible to pass Event arguments as CommanParameter
