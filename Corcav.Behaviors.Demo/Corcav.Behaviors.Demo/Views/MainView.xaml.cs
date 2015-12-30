@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Corcav.Behaviors.Demo.Views
 {
-	public partial class MainView
+	public partial class MainView: ContentPage
 	{
 		public MainView()
 		{
