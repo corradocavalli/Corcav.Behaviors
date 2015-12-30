@@ -4,6 +4,12 @@ Behaviors plugin for Xamarin Forms
 This project is the porting of core Blend behaviors infrastructure to Xamarin Forms Platform,
 you can read about initial version here: http://bit.ly/xamarinbehaviors
 
+Requirements
+============
+
+You must add a call to Corcav.Behaviors.Infrastructure.Init() to the FinishLaunching method within AppDelegate.cs of your iOS project.  See this [blog](http://codeworks.it/blog/?p=242)
+for more details.
+
 Updates
 =======
 * version 2.1.1 updated to Xamarin Forms v 1.4.4.6392
