@@ -148,7 +148,7 @@ namespace Corcav.Behaviors
         /// <param name="e">The EventArgs value accompanying the Event</param>
         private void OnFired(EventArgs e)
 		{
-            object returnParam = this.CommandParameter ?? e;
+            object returnParam = e ?? this.CommandParameter;
 
             if (!string.IsNullOrEmpty(this.CommandName))
 			{
@@ -156,6 +156,8 @@ namespace Corcav.Behaviors
 			}
 
 			if (this.Command == null) throw new InvalidOperationException("No command available, Is Command properly set up?");
+
+			if (e == null && this.CommandParameter == null) throw new InvalidOperationException("You need a CommandParameter");
 
 			if (this.Command.CanExecute(returnParam))
 			{
