@@ -24,6 +24,14 @@ namespace Corcav.Behaviors
 		private EventInfo eventInfo;
 
 		/// <summary>
+		/// Gets or sets a value indicating whether event argument will be passed to bound command.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [pass event argument]; otherwise, <c>false</c>.
+		/// </value>
+		public bool PassEventArgument { get; set; }
+
+		/// <summary>
 		/// Gets or sets the name of the event to subscribe
 		/// </summary>
 		/// <value>
@@ -93,6 +101,7 @@ namespace Corcav.Behaviors
 				this.eventInfo = events.FirstOrDefault(e => e.Name == this.EventName);
 				if (this.eventInfo == null) throw new ArgumentException(string.Format("EventToCommand: Can't find any event named '{0}' on attached type"));
 				this.AddEventHandler(eventInfo, this.AssociatedObject, this.OnFired);
+
 			}
 		}
 
@@ -121,36 +130,36 @@ namespace Corcav.Behaviors
 			eventInfo.AddEventHandler(item, handler);
 		}
 
-        /// <summary>
-        /// Called when subscribed event fires
-        /// 
-        /// If a CommandParameter isn't assigned, the EventArgs parameter to the Event you're attaching to will be sent instead.
-        /// You will want to have your Command to accept a parameter type of EventArgs for this to work correctly.
-        /// 
-        /// </summary>
-        /// <example>This is an example of using a Command and accepting an object of the ItemVisibilityEventArgs Type
-        /// <code>
-        /// ICommand ItemAppearingCommand
-        /// {
-        ///     get
-        ///     {
-        ///         return new Command&lt;ItemVisibilityEventArgs&gt;(async args => 
-        ///         {
-        ///             if(viewModel.Items != null &amp;&amp; e.Item == viewModel.Items[viewModel.Items.Count -1])
-        ///             {
-        ///                 await viewModel.RetrieveNextItemSet(viewModel.Items.Count).ConfigureAwait(false);
-        ///             }
-        ///         }
-        ///     }    
-        /// }
-        /// </code>
-        /// </example>
-        /// <param name="e">The EventArgs value accompanying the Event</param>
-        private void OnFired(EventArgs e)
+		/// <summary>
+		/// Called when subscribed event fires
+		/// 
+		/// If a CommandParameter isn't assigned, the EventArgs parameter to the Event you're attaching to will be sent instead.
+		/// You will want to have your Command to accept a parameter type of EventArgs for this to work correctly.
+		/// 
+		/// </summary>
+		/// <example>This is an example of using a Command and accepting an object of the ItemVisibilityEventArgs Type
+		/// <code>
+		/// ICommand ItemAppearingCommand
+		/// {
+		///     get
+		///     {
+		///         return new Command&lt;ItemVisibilityEventArgs&gt;(async args => 
+		///         {
+		///             if(viewModel.Items != null &amp;&amp; e.Item == viewModel.Items[viewModel.Items.Count -1])
+		///             {
+		///                 await viewModel.RetrieveNextItemSet(viewModel.Items.Count).ConfigureAwait(false);
+		///             }
+		///         }
+		///     }    
+		/// }
+		/// </code>
+		/// </example>
+		/// <param name="e">The EventArgs value accompanying the Event</param>
+		private void OnFired(EventArgs e)
 		{
-            object returnParam = e ?? this.CommandParameter;
+			object param = this.PassEventArgument ? e : this.CommandParameter;
 
-            if (!string.IsNullOrEmpty(this.CommandName))
+			if (!string.IsNullOrEmpty(this.CommandName))
 			{
 				if (this.Command == null) this.CreateRelativeBinding();
 			}
@@ -159,9 +168,9 @@ namespace Corcav.Behaviors
 
 			if (e == null && this.CommandParameter == null) throw new InvalidOperationException("You need a CommandParameter");
 
-			if (this.Command.CanExecute(returnParam))
+			if (this.Command != null && this.Command.CanExecute(param))
 			{
-				this.Command.Execute(returnParam);
+				this.Command.Execute(param);
 			}
 		}
 
@@ -174,9 +183,9 @@ namespace Corcav.Behaviors
 			if (this.Command != null) throw new InvalidOperationException("Both Command and CommandName properties specified, only one mode supported.");
 
 			PropertyInfo pi = this.CommandNameContext.GetType().GetRuntimeProperty(this.CommandName);
-			if (pi == null) throw new ArgumentNullException(string.Format("Can't find a command named '{0}'", this.CommandName));
+			if (pi == null) throw new ArgumentNullException($"Can't find a command named '{this.CommandName}'");
 			this.Command = pi.GetValue(this.CommandNameContext) as ICommand;
-			if (this.Command == null) throw new ArgumentNullException(string.Format("Can't create binding with CommandName '{0}'", this.CommandName));
+			if (this.Command == null) throw new ArgumentNullException($"Can't create binding with CommandName '{this.CommandName}'");
 		}
 	}
 }
