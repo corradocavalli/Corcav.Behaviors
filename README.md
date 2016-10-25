@@ -12,6 +12,9 @@ for more details.
 
 Updates
 =======
+* version 2.3.4 updated to Xamarin Forms v 2.3.2.127
+  Fixed missing profile 259 issue.
+
 * version 2.3.2 updated to Xamarin Forms v 2.3.1.114
   EventToCommand now has an additional property: PassEventArgument (bool) when true will pass event argument to Command.
   
