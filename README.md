@@ -29,7 +29,7 @@ In order to prevent conflicts with Xamarin API the namespace has been renamed, *
 
 Use Git repo for feedback and issues.
 
-*License
+* License
 Project is released under MIT license
 
 The MIT License (MIT)
