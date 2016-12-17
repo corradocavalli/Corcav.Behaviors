@@ -12,6 +12,9 @@ for more details.
 
 Updates
 =======
+* version 2.3.5 updated to Xamarin Forms v 2.3.3.175
+  Removed use of obsolete APIs
+
 * version 2.3.4 updated to Xamarin Forms v 2.3.2.127
   Fixed missing profile 259 issue.
 

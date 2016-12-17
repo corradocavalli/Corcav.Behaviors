@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corcav.Behaviors.Demo", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corcav.Behaviors.Demo.UWP", "Corcav.Behaviors.Demo\Corcav.Behaviors.Demo.UWP\Corcav.Behaviors.Demo.UWP.csproj", "{EF3E45E6-EFA1-4392-8CB8-3F2A7738151A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F192B528-67E0-4147-809B-25D14132434A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
