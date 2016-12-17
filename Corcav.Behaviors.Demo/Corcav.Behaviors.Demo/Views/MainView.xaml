@@ -24,8 +24,7 @@
 				<behaviors:BehaviorCollection>
 					<behaviors:TextChangedBehavior Text="{Binding LastName, Mode=TwoWay}" />
 					<behaviors:EventToCommand BindingContext="{behaviors:RelativeContext MainPage}"
-											EventName="Unfocused"
-											
+										EventName="Unfocused"
 										Command="{Binding UnfocusedCommand}"
 										CommandParameter="LastName" />
 				</behaviors:BehaviorCollection>

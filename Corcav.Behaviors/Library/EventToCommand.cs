@@ -14,11 +14,11 @@ namespace Corcav.Behaviors
 	/// </summary>
 	public class EventToCommand : Behavior
 	{
-		public static readonly BindableProperty EventNameProperty = BindableProperty.Create<EventToCommand, string>(p => p.EventName, null);
-		public static readonly BindableProperty CommandProperty = BindableProperty.Create<EventToCommand, ICommand>(p => p.Command, null);
-		public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<EventToCommand, object>(p => p.CommandParameter, null);
-		public static readonly BindableProperty CommandNameProperty = BindableProperty.Create<EventToCommand, string>(p => p.CommandName, null);
-		public static readonly BindableProperty CommandNameContextProperty = BindableProperty.Create<EventToCommand, object>(p => p.CommandNameContext, null);
+		public static readonly BindableProperty EventNameProperty = BindableProperty.Create("EventName", typeof(string), typeof(EventToCommand));
+		public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(EventToCommand));
+		public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(EventToCommand));
+		public static readonly BindableProperty CommandNameProperty = BindableProperty.Create("CommandName", typeof(string), typeof(EventToCommand));
+		public static readonly BindableProperty CommandNameContextProperty = BindableProperty.Create("CommandNameContext", typeof(object), typeof(EventToCommand));
 
 		private Delegate handler;
 		private EventInfo eventInfo;
