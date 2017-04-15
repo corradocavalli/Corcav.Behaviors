@@ -12,7 +12,7 @@ for more details.
 
 Updates
 =======
-* version 2.3.6 updated to Xamarin Forms v 2.3.4.231
+* version 2.3.7 updated to Xamarin Forms v 2.3.4.231
 * version 2.3.5 updated to Xamarin Forms v 2.3.3.175
   Removed use of obsolete APIs
 
