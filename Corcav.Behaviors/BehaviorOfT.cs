@@ -16,7 +16,7 @@ namespace Corcav.Behaviors
 		/// <value>
 		/// The associated object.
 		/// </value>
-		public T AssociatedObject
+		public new T AssociatedObject
 		{
 			get
 			{

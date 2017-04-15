@@ -21,7 +21,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>9.3</string>
+	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Corcav.Behaviors.Demo</string>
 	<key>CFBundleIdentifier</key>
