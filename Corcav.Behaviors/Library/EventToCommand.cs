@@ -99,7 +99,7 @@ namespace Corcav.Behaviors
 			if (events.Any())
 			{
 				this.eventInfo = events.FirstOrDefault(e => e.Name == this.EventName);
-				if (this.eventInfo == null) throw new ArgumentException(string.Format("EventToCommand: Can't find any event named '{0}' on attached type"));
+				if (this.eventInfo == null) throw new ArgumentException(string.Format("EventToCommand: Can't find any event named '{0}' on attached type", this.EventName));
 				this.AddEventHandler(eventInfo, this.AssociatedObject, this.OnFired);
 
 			}
