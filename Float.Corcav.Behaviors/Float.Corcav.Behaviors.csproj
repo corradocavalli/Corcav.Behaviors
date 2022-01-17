@@ -7,8 +7,8 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <CodeAnalysisRuleSet>$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <PackageId>$(AssemblyName)</PackageId>
-    <Title>$(AssemblyName)</Title>
+    <PackageId>Float.$(AssemblyName)</PackageId>
+    <Title>Float.$(AssemblyName)</Title>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
