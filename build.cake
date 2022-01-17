@@ -139,7 +139,7 @@ Task("Pack")
                 .SetVersion(packageVersion)
         });
 
-        var packPath = File($"./{projectName}/bin/{configuration}/netstandard2.0/{projectName}.dll");
+        var packPath = File($"./{projectName}/bin/{configuration}/netstandard2.0/Corcav.Behaviors.dll");
         var packHash = CalculateFileHash(packPath).ToHex();
         var packSize = $"{FileSize(packPath)}";
         Information($"  Assembly hash: {packHash}");
