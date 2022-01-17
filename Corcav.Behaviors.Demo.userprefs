@@ -1,9 +1,0 @@
-﻿<Properties StartupConfiguration="{54E2E828-7594-4154-BE10-63E6A7554B22}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Corcav.Behaviors.Demo.Droid PreferredExecutionTarget="Android.AVD_GalaxyNexus_ToolsForApacheCordova" />
-  <MonoDevelop.Ide.Workbench />
-</Properties>

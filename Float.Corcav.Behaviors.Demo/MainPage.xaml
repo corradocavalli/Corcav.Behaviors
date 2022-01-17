@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Corcav.Behaviors.Demo.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+    x:Name="MainView">
+    <StackLayout>
+        <StackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
+            </OnPlatform>
+        </StackLayout.Padding>
+        <Entry Placeholder="Enter Firstname">
+            <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                    <behaviors:TextChangedBehavior Text="{Binding FirstName, Mode=TwoWay}" />
+                    <behaviors:EventToCommand
+                        Command="{Binding UnfocusedCommand}"
+                        CommandParameter="FirstName"
+                        EventName="Unfocused" />
+                </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
+        </Entry>
+        <Entry Placeholder="Enter Lastname">
+            <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                    <behaviors:TextChangedBehavior Text="{Binding LastName, Mode=TwoWay}" />
+                    <behaviors:EventToCommand
+                        BindingContext="{behaviors:RelativeContext MainPage}"
+                        Command="{Binding UnfocusedCommand}"
+                        CommandParameter="LastName"
+                        EventName="Unfocused" />
+                </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
+        </Entry>
+        <Button Command="{Binding TestCommand}" Text="Ok" />
+        <Label Text="{Binding Message}" />
+        <Label Text="{Binding WelcomeMessage}" />
+        <ListView
+            IsGroupingEnabled="false"
+            ItemsSource="{Binding Items}"
+            RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Vertical"
+                                Spacing="-50">
+                                <Button Text="{Binding NickName}">
+                                    <behaviors:Interaction.Behaviors>
+                                        <behaviors:BehaviorCollection>
+                                            <behaviors:EventToCommand
+                                                CommandName="NickSelectedCommand"
+                                                CommandNameContext="{behaviors:RelativeContext MainPage}"
+                                                CommandParameter="{Binding NickName}"
+                                                EventName="Clicked" />
+                                        </behaviors:BehaviorCollection>
+                                    </behaviors:Interaction.Behaviors>
+                                </Button>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
