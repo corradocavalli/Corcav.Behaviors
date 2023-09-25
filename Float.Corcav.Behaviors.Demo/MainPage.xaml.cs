@@ -1,5 +1,9 @@
 ﻿using Corcav.Behaviors.Demo.ViewModels;
+#if NETSTANDARD
 using Xamarin.Forms;
+#else
+using Microsoft.Maui;
+#endif
 
 namespace Corcav.Behaviors.Demo
 {
