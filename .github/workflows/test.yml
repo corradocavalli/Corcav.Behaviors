@@ -20,13 +20,13 @@ jobs:
             6.0.x
             7.0.x
       - name: Retore Workload
-        run: dotnet workload restore ./Float.CorCav.Behaviors.csproj
+        run: dotnet workload restore
       - name: Restore dependencies
-        run: dotnet restore ./Float.CorCav.Behaviors.csproj
+        run: dotnet restore
       - name: Build
-        run: dotnet build ./Float.CorCav.Behaviors.csproj --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
       - name: Test
-        run: dotnet test ./Float.CorCav.Behaviors.csproj --configuration Release --no-build --verbosity normal --logger:"trx;"
+        run: dotnet test --configuration Release --no-build --verbosity normal --logger:"trx;"
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
