@@ -20,7 +20,7 @@ jobs:
             6.0.x
             7.0.x
       - name: What folder
-         run: pwd
+        run: pwd
       - name: Retore Workload
         run: dotnet workload restore ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj
       - name: Restore dependencies
