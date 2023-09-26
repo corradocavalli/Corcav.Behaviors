@@ -20,7 +20,7 @@ jobs:
             6.0.x
             7.0.x
       - name: Retore Workload
-        run: dotnet workload restore /Float.CorCav.Behaviors.csproj
+        run: dotnet workload restore ./Float.CorCav.Behaviors.csproj
       - name: Restore dependencies
         run: dotnet restore ./Float.CorCav.Behaviors.csproj
       - name: Build
