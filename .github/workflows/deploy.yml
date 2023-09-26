@@ -21,18 +21,18 @@ jobs:
             6.0.x
             7.0.x
       - name: Retore Workload
-        run: dotnet workload restore ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj
+        run: dotnet workload restore ./Float.CorCav.Behaviors.csproj
       - name: Restore dependencies
-        run: dotnet restore ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj
+        run: dotnet restore ./Float.CorCav.Behaviors.csproj
       - name: Set Assembly Version
         run: ./build.sh --task=GitVersion --configuration=Release
       - name: Build Library
-        run: dotnet build ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj --configuration Release --no-restore
+        run: dotnet build ./Float.CorCav.Behaviors.csproj --configuration Release --no-restore
       - name: Update Version
-        run: sed -i "s/<Version><\/Version>/<Version>${{ github.event.release.name }}<\/Version>/" ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj
+        run: sed -i "s/<Version><\/Version>/<Version>${{ github.event.release.name }}<\/Version>/" ./Float.CorCav.Behaviors.csproj
       - name: Pack and Upload
-        run: dotnet pack ./Float.CorCav.Behaviors/Float.CorCav.Behaviors.csproj --configuration Release --no-restore
+        run: dotnet pack ./Float.CorCav.Behaviors.csproj --configuration Release --no-restore
       - name: Deploy to NuGet
         env:
           FLOAT_NUGET_TOKEN: ${{ secrets.FLOAT_NUGET_TOKEN }}
-        run: dotnet nuget push ./Float.CorCav.Behaviors/bin/Release/Float.CorCav.Behaviors.${{ github.event.release.name }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./bin/Release/Float.CorCav.Behaviors.${{ github.event.release.name }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
