@@ -2,24 +2,34 @@ name: Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            3.1.x
+            6.0.x
+            7.0.x
+      - name: Restore Workload
+        run: dotnet workload restore Float.Corcav.Behaviors/Float.Corcav.Behaviors.csproj
+      - name: Restore dependencies
+        run: dotnet restore Float.Corcav.Behaviors/Float.Corcav.Behaviors.csproj
+      - name: Build
+        run: dotnet build Float.Corcav.Behaviors/Float.Corcav.Behaviors.csproj --configuration Release --no-restore
+      - name: Test
+        run: dotnet test Float.Corcav.Behaviors/Float.Corcav.Behaviors.csproj --configuration Release --no-build --verbosity normal --logger:"trx;"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            **/TestResults/*.trx

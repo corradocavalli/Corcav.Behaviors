@@ -1,5 +1,10 @@
 using System;
+#if NETSTANDARD
 using Xamarin.Forms;
+#else
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+#endif
 
 namespace Corcav.Behaviors
 {

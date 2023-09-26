@@ -92,7 +92,6 @@ Task("GitVersion")
     });
 
 Task("Build")
-    .IsDependentOn("RestorePackages")
     .IsDependentOn("GitVersion")
     .Does(() =>
     {

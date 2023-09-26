@@ -3,7 +3,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Input;
+#if NETSTANDARD
 using Xamarin.Forms;
+#else
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+#endif
 
 namespace Corcav.Behaviors
 {
