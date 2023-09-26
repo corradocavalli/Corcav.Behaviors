@@ -3,8 +3,6 @@ name: Test
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
 
 jobs:
   test:
@@ -19,8 +17,6 @@ jobs:
             3.1.x
             6.0.x
             7.0.x
-      - name: Directory details
-        run: ls Float.Corcav.Behaviors/
       - name: Restore Workload
         run: dotnet workload restore Float.Corcav.Behaviors/Float.Corcav.Behaviors.csproj
       - name: Restore dependencies
