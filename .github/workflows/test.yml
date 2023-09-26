@@ -19,7 +19,9 @@ jobs:
             3.1.x
             6.0.x
             7.0.x
-      - name: Retore Workload
+      - name: Directory details
+        run: ls
+      - name: Restore Workload
         run: dotnet workload restore
       - name: Restore dependencies
         run: dotnet restore
